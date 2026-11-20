@@ -1,2 +1,2 @@
-# eevee-quiz
+# eevee
 Mobile personality quiz
