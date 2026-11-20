@@ -30,7 +30,7 @@ body {
   background-color: var(--cork-fallback);
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0),
-    url("/assets/corkboard-texture.jpg");
+    url("./assets/corkboard-texture.jpg");
   background-size: 18px 18px, cover;
   background-position: center;
   display: flex;
