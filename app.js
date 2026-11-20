@@ -475,7 +475,7 @@ function renderScreen() {
         <div class="pushpin"></div>
 
         <div class="hero-print-wrap" style="margin-top: 26px;">
-          <img class="crown-overlay" src="/assets/victory-crown.png" alt="Victory Crown" />
+          <img class="crown-overlay" src="/.assets/victory-crown.png" alt="Victory Crown" />
           <img class="hero-print-img" src="${hero.image}" alt="${hero.title}" />
         </div>
 
