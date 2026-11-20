@@ -75,9 +75,9 @@ const CHARACTERS = {
     traits: ["CREATIVE TINKERER", "SYSTEMS BUILDER", "TECH INNOVATOR"],
     description:
       "You are the one who naturally brings abstract ideas to life. You love figuring out how things work, building prototypes, and designing smart solutions that make sustainability functional and exciting.",
-    image: "/assets/roles/role-a.jpg",
+    image: "./assets/roles/role-a.jpg",
     bestieLabel: "The Climate Changemaker",
-    bestieImage: "/assets/roles/role-d.jpg",
+    bestieImage: "./assets/roles/role-d.jpg",
     primaryBoardId: 1,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   },
@@ -88,9 +88,9 @@ const CHARACTERS = {
     traits: ["GROUND-UP RESEARCHER", "NATURE LOVER", "DETAIL-ORIENTED"],
     description:
       "You are the one who wholeheartedly connects with the natural world. You value ground-level facts, care deeply about preserving biodiversity, and notice the critical ecological details others often miss.",
-    image: "/assets/roles/role-b.jpg",
+    image: "./assets/roles/role-b.jpg",
     bestieLabel: "The Food Lover",
-    bestieImage: "/assets/roles/role-c.jpg",
+    bestieImage: "./assets/roles/role-c.jpg",
     primaryBoardId: 6,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   },
@@ -101,9 +101,9 @@ const CHARACTERS = {
     traits: ["COMMUNITY CONNECTOR", "COLLABORATION BUILDER", "WARM PRESENCE"],
     description:
       "You are the one who naturally brings people together. Whether through shared meals, community spaces, or fostering local collaboration, you know that sustainability thrives on human connection.",
-    image: "/assets/roles/role-c.jpg",
+    image: "./assets/roles/role-c.jpg",
     bestieLabel: "The Wildlife Guardian",
-    bestieImage: "/assets/roles/role-b.jpg",
+    bestieImage: "./assets/roles/role-b.jpg",
     primaryBoardId: 3,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   },
@@ -114,9 +114,9 @@ const CHARACTERS = {
     traits: ["MACRO THINKER", "PATTERN FINDER", "STRATEGIC PLANNER"],
     description:
       "You are the one who naturally zooms out to see the whole board. You analyse global trends, understand complex policy systems, and look for deep structural solutions to secure a sustainable future.",
-    image: "/assets/roles/role-d.jpg",
+    image: "./assets/roles/role-d.jpg",
     bestieLabel: "The Eco-Architect",
-    bestieImage: "/assets/roles/role-a.jpg",
+    bestieImage: "./assets/roles/role-a.jpg",
     primaryBoardId: 9,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   }
