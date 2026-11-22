@@ -6,120 +6,185 @@ const CHARACTERS = {
     traits: ["CREATIVE TINKERER", "SYSTEMS BUILDER", "TECH INNOVATOR"],
     description:
       "You are the one who naturally brings abstract ideas to life. You love figuring out how things work, building prototypes, and designing smart solutions that make sustainability functional and exciting.",
-    ownBestieNote:
-      "Your best match is someone who spots everyday community needs while you engineer clever, hands-on fixes together.",
     image: "./assets/roles/role-a.jpg",
     bestieLabel: "The Climate Changemaker",
     bestieImage: "./assets/roles/role-d.jpg",
     primaryBoardId: 1,
-    ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
+    ctaText: "Take part in a sustainability quiz to get a free gift (While stocks last)!"
   },
   B: {
     role: "B",
     title: "The Wildlife Guardian",
     subtitle: "The Protector",
-    traits: ["NATURE DEFENDER", "EMPATHETIC OBSERVER", "HABITAT STEWARD"],
+    traits: ["GROUND-UP RESEARCHER", "NATURE LOVER", "DETAIL-ORIENTED"],
     description:
-      "You notice the quiet details of the living world that others rush past. You care deeply about protecting ecosystems, biodiversity, and the creatures that share our spaces.",
-    ownBestieNote:
-      "Your best match is someone who brings vibrant energy to shared meals and gatherings while keeping nature front and center.",
+      "You are the one who wholeheartedly connects with the natural world. You value ground-level facts, care deeply about preserving biodiversity, and notice the critical ecological details others often miss.",
     image: "./assets/roles/role-b.jpg",
     bestieLabel: "The Food Lover",
     bestieImage: "./assets/roles/role-c.jpg",
-    primaryBoardId: 3,
-    ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
+    primaryBoardId: 6,
+    ctaText: "Take part in a quiz tailored to your interests to get a free gift!"
   },
   C: {
     role: "C",
     title: "The Food Lover",
-    subtitle: "The Nourisher",
-    traits: ["CONSCIOUS TASTER", "COMMUNITY CONNECTOR", "SEASONAL CURATOR"],
+    subtitle: "The Collaborator",
+    traits: ["COMMUNITY CONNECTOR", "COLLABORATION BUILDER", "WARM PRESENCE"],
     description:
-      "For you, sustainability starts at the table. You celebrate local ingredients, mindful sourcing, and the joy of bringing people together over food that respects both craft and planet.",
-    ownBestieNote:
-      "Your best match is someone who protects the land and wildlife behind every ingredient you love sharing.",
+      "You are the one who naturally brings people together. Whether through shared meals, community spaces, or fostering local collaboration, you know that sustainability thrives on human connection.",
     image: "./assets/roles/role-c.jpg",
     bestieLabel: "The Wildlife Guardian",
     bestieImage: "./assets/roles/role-b.jpg",
-    primaryBoardId: 6,
-    ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
+    primaryBoardId: 3,
+    ctaText: "Take part in a quiz tailored to your interests to get a free gift!"
   },
   D: {
     role: "D",
     title: "The Climate Changemaker",
-    subtitle: "The Catalyst",
-    traits: ["BOLD ADVOCATE", "ACTION SPARK", "FUTURE VISIONARY"],
+    subtitle: "The Visionary",
+    traits: ["MACRO THINKER", "PATTERN FINDER", "STRATEGIC PLANNER"],
     description:
-      "You turn concern into momentum. Whether rallying friends, starting conversations, or pushing for greener choices, you help others see that small collective actions add up fast.",
-    ownBestieNote:
-      "Your best match is someone who turns your big momentum into practical prototypes and lasting systems.",
+      "You are the one who naturally zooms out to see the whole board. You analyse global trends, understand complex policy systems, and look for deep structural solutions to secure a sustainable future.",
     image: "./assets/roles/role-d.jpg",
     bestieLabel: "The Eco-Architect",
     bestieImage: "./assets/roles/role-a.jpg",
     primaryBoardId: 9,
-    ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
+    ctaText: "Take part in a quiz tailored to your interests to get a free gift!"
   }
 };
 
 const QUESTIONS = [
   {
-    id: 1,
-    prompt: "When you walk into a creative space or venue, what catches your eye first?",
+    id: "q1",
+    isTieBreaker: true,
+    prompt: "It’s a chill Saturday morning. What’s your ideal way to spend it?",
     options: [
-      { text: "Clever structures, upcycled materials, and how the space is put together", role: "A" },
-      { text: "Plants, natural textures, and signs of care for living things", role: "B" },
-      { text: "Where snacks or drinks come from and how thoughtfully they're prepared", role: "C" },
-      { text: "Ideas, messages, and energy that inspire people to take action", role: "D" }
+      {
+        text: "Heading outdoors for a walk in nature to unwind, observe the surroundings, and recharge.",
+        role: "B"
+      },
+      {
+        text: "Tinkering with a fun craft or project and letting my creative mind wander wherever it wants.",
+        role: "A"
+      },
+      {
+        text: "Journaling, reflecting on the week, and catching up on an insightful podcast or book.",
+        role: "D"
+      },
+      {
+        text: "Preparing a cozy homemade meal to share with people I care about.",
+        role: "C"
+      }
     ]
   },
   {
-    id: 2,
-    prompt: "A friend wants to start a greener habit this week. How do you help?",
+    id: "q2",
+    prompt: "When starting a new project, what part of the process gives you the biggest thrill?",
     options: [
-      { text: "Help them set up a practical system or DIY swap that makes it effortless", role: "A" },
-      { text: "Share how it protects local habitats, animals, or natural spaces", role: "B" },
-      { text: "Suggest a tasty local or low-waste food swap they'll actually look forward to", role: "C" },
-      { text: "Cheer them on, keep them motivated, and invite others to join in", role: "D" }
+      {
+        text: "Designing the master blueprint—mapping out how all the moving pieces fit into the big picture.",
+        role: "D"
+      },
+      {
+        text: "Assembling the team—getting everyone energized, aligned, and ready to collaborate.",
+        role: "C"
+      },
+      {
+        text: "Making the physical or digital prototype—turning an abstract idea into something tangible.",
+        role: "A"
+      },
+      {
+        text: "Doing the preliminary fieldwork—getting out into the space, observing details, and gathering facts.",
+        role: "B"
+      }
     ]
   },
   {
-    id: 3,
-    prompt: "Which weekend project sounds most fun to you?",
+    id: "q3",
+    prompt: "What kind of environment helps you do your best thinking?",
     options: [
-      { text: "Building, fixing, or designing something useful from scratch", role: "A" },
-      { text: "Spending time outdoors learning about native plants and wildlife", role: "B" },
-      { text: "Experimenting with seasonal recipes or visiting a farmers' market", role: "C" },
-      { text: "Hosting a mini swap, cleanup, or campaign with friends", role: "D" }
+      {
+        text: "A dynamic workshop or studio packed with tools, materials, and creative freedom.",
+        role: "A"
+      },
+      {
+        text: "A quiet nook with a cup of coffee/tea, a notebook, and room to think deep thoughts undisturbed.",
+        role: "D"
+      },
+      {
+        text: "A calming space in nature surrounded by greenery.",
+        role: "B"
+      },
+      {
+        text: "A warm, welcoming communal space filled with conversation, food, and good energy.",
+        role: "C"
+      }
     ]
   },
   {
-    id: 4,
-    prompt: "What kind of impact makes you feel proudest?",
+    id: "q4",
+    prompt: "If you could jump back into school for a day, which subject would you pick?",
     options: [
-      { text: "Making a smart, durable solution that works in real life", role: "A" },
-      { text: "Helping living creatures and natural environments thrive", role: "B" },
-      { text: "Connecting people through good food and mindful choices", role: "C" },
-      { text: "Sparking conversations and shifting habits across a group", role: "D" }
+      {
+        text: "Home Economics / Social Studies: Exploring culture, community dynamics, and practical skills for everyday living.",
+        role: "C"
+      },
+      {
+        text: "Biology / Geography: Understanding natural systems, ecosystems, and how the physical world operates.",
+        role: "B"
+      },
+      {
+        text: "History / Economics: Analyzing past patterns, global systems, and big-picture cause-and-effect trends.",
+        role: "D"
+      },
+      {
+        text: "Design & Technology / Art: Hands-on creation, building models, and bringing ideas to life visually.",
+        role: "A"
+      }
     ]
   },
   {
-    id: 5,
-    prompt: "Pick the scrapbook sticker or item you'd add to your board:",
+    id: "q5",
+    prompt: "You're picking a movie or show for movie night. What genre are you putting on?",
     options: [
-      { text: "A blueprint sketch or mini tool kit", role: "A" },
-      { text: "A pressed leaf, bird illustration, or forest badge", role: "B" },
-      { text: "A citrus slice, herb sprig, or recipe card", role: "C" },
-      { text: "A megaphone, sunburst, or 'Let's Go!' banner", role: "D" }
+      {
+        text: "Nature & Wildlife Documentaries: Immersive, grounded stories showcasing wild landscapes and hidden natural wonder.",
+        role: "B"
+      },
+      {
+        text: "Sci-Fi: Full of futuristic gadgets, creative world-building, and cool visual aesthetics.",
+        role: "A"
+      },
+      {
+        text: "Thrillers / Dramas: Complex narratives packed with strategy and high-stakes decisions.",
+        role: "D"
+      },
+      {
+        text: "Romantic Comedies / Reality TV: Feel-good stories centered around human connection, shared meals, and community.",
+        role: "C"
+      }
     ]
   },
   {
-    id: 6,
-    prompt: "How do you usually approach a big sustainability challenge?",
+    id: "q6",
+    prompt: "What's your ultimate travel style when exploring a brand-new city?",
     options: [
-      { text: "Break it down into parts and prototype a workable fix", role: "A" },
-      { text: "Start by protecting what's most vulnerable around you", role: "B" },
-      { text: "Look at daily routines—especially what we eat and share", role: "C" },
-      { text: "Rally people together and keep the momentum going", role: "D" }
+      {
+        text: "Visiting historical monuments, national museums, and learning the history and culture of a city.",
+        role: "D"
+      },
+      {
+        text: "Visiting bustling local markets, joining a food tour, and eating where the locals gather.",
+        role: "C"
+      },
+      {
+        text: "Hunting down hidden pop-ups, creative spaces, and modern design museums.",
+        role: "A"
+      },
+      {
+        text: "Exploring natural parks, botanical reserves, and coastal trails.",
+        role: "B"
+      }
     ]
   }
 ];
@@ -127,47 +192,150 @@ const QUESTIONS = [
 const BOARDS = {
   1: {
     id: 1,
-    pin: "1042",
-    question: "Board #1 Trivia: What is a key benefit of designing modular or repairable items?",
+    title: "Too Cool for Fuel",
+    pin: "1235",
+    question:
+      "The Flower Dome is cooled using alternative cooling technologies. Complete the sentence: By only cooling ________________, less energy is used.",
     options: [
-      "They extend product lifespan and reduce whole-item waste",
-      "They require single-use glue so parts never separate",
-      "They must be thrown away as soon as one piece wears out"
+      "the walls of the Flower Dome",
+      "the glass panels of the Flower Dome",
+      "the area of the Flower Dome where plants and people are present",
+      "the planter boxes in the Flower Dome"
     ],
-    correctIndex: 0
+    correctIndex: 2,
+    hint: "Who/What benefits from the cool air?"
+  },
+  2: {
+    id: 2,
+    title: "Guardians of the Grove",
+    pin: "5462",
+    question:
+      "Global warming causes unfavourable weather conditions for all plants grown for food, including olive trees. One of the consequences of this is smaller harvests. What are the consequences of a smaller harvest for humans?",
+    options: [
+      "Less food is produced for local consumption.",
+      "Less food is produced for export, affecting the country’s economy.",
+      "Local farmers earn less.",
+      "All of the above."
+    ],
+    correctIndex: 3,
+    hint: "Global warming has widespread impact."
   },
   3: {
     id: 3,
-    pin: "3087",
-    question: "Board #3 Trivia: Why do native plants matter so much for local wildlife?",
+    title: "Grow it Yourself!",
+    pin: "2168",
+    question:
+      "Gardening enthusiasts in the neighbourhood often work together to start and look after community gardens, providing both social and environmental benefits. Which of the following is a social benefit of having community gardens in neighbourhoods?",
     options: [
-      "They provide familiar food and shelter adapted to local pollinators and birds",
-      "They stop all insects from visiting a garden",
-      "They need heavy chemical treatments every week"
+      "They attract pollinators like birds and insects.",
+      "They provide a space for people to meet and build friendships.",
+      "They beautify the neighbourhood.",
+      "They provide fresh ingredients for local residents."
     ],
-    correctIndex: 0
+    correctIndex: 1,
+    hint: "“Social” refers to human connection and community building. How do community gardens improve community ties?"
+  },
+  4: {
+    id: 4,
+    title: "Green is Cool",
+    pin: "3548",
+    question: "Why are the Supertrees covered with many plants?",
+    options: [
+      "The plants help to keep their surroundings cool.",
+      "The roots of the plants keep the Supertrees upright.",
+      "The plants prevent mosquito breeding by absorbing water from the Supertrees.",
+      "The plants absorb nutrients from the Supertree."
+    ],
+    correctIndex: 0,
+    hint: "Look at the panel again - Other than beautifying the Supertrees, what is another benefit of growing plants on the Supertrees?"
+  },
+  5: {
+    id: 5,
+    title: "The Lake Cycle",
+    pin: "8798",
+    question: "Which of the Four National Taps does Dragonfly Lake contribute to?",
+    options: [
+      "Water from local catchment",
+      "NEWater",
+      "Imported water",
+      "Desalinated water"
+    ],
+    correctIndex: 0,
+    hint: "Where does water from Dragonfly Lake flow into?"
   },
   6: {
     id: 6,
-    pin: "6159",
-    question: "Board #6 Trivia: What is one simple way to cut food waste at home or events?",
+    title: "The Amazon River",
+    pin: "5468",
+    question:
+      "Singapore may be far away from the Amazon, but we can also do our part to protect its biodiversity. What should we avoid doing to protect biodiversity in the Amazon?",
     options: [
-      "Plan portions ahead and store or repurpose leftovers creatively",
-      "Cook double portions with no plan for extras",
-      "Buy perishable items only when already overripe"
+      "Choose paper products from sustainable sources",
+      "Learn about the Amazon and share what we have learnt with our family and friends",
+      "Use more paper",
+      "Reduce our consumption of beef, palm oil, and soybeans."
     ],
-    correctIndex: 0
+    correctIndex: 2,
+    hint: "pssstt...the question is asking for what we should AVOID"
+  },
+  7: {
+    id: 7,
+    title: "Superpowered Supertrees",
+    pin: "8756",
+    question:
+      "The Supertrees are part of Gardens by the Bay’s sustainability efforts. How do the Supertrees help to power the Gardens sustainably?",
+    options: [
+      "Turbines on the top of the Supertrees are turned when it is windy, converting kinetic energy into electricity.",
+      "Turbines on the top of the Supertrees are turned when there is heavy rain, converting kinetic energy into electricity.",
+      "Solar panels on the top of the Supertrees absorb solar energy which is converted into electricity.",
+      "The Supertrees absorb heat which is used to generate steam. The steam turns turbines in a room under the Supertrees."
+    ],
+    correctIndex: 2,
+    hint: "The Supertrees light up beautifully every night. Where do you think that energy was collected during the day?"
+  },
+  8: {
+    id: 8,
+    title: "Food for Thought",
+    pin: "1568",
+    question:
+      "Climate change has affected farmers and the crops they grow. Should climate change worsen, food supplies around the world will be affected. How does climate change affect food supplies?",
+    options: [
+      "Crops grow poorly due to unfavourable weather conditions. Farmers are unable to grow enough food.",
+      "More storms occur due to unpredictable weather patterns. Ships and airplanes face difficulties transporting food around the world.",
+      "More heat-related injuries are occurring due to increasing temperatures. Farmers spend less time in the fields to prevent heatstroke.",
+      "Roads are cut off due to more intense flooding. Trucks are unable to deliver equipment and supplies that farmers need."
+    ],
+    correctIndex: 0,
+    hint: "“Food supplies” refers to the amount of food available. How does climate change affect the amount of food produced?"
   },
   9: {
     id: 9,
-    pin: "9274",
-    question: "Board #9 Trivia: Why does community action matter in climate solutions?",
+    title: "Climate Change - A Global Problem",
+    pin: "9849",
+    question: "How do human activities speed up climate change?",
     options: [
-      "Shared habits and group norms multiply individual effort into visible change",
-      "Group efforts never influence what others try",
-      "Only silent, isolated actions can ever inspire others"
+      "Human activities release more greenhouse gases than needed to keep Earth warm, causing more heat to be trapped in the atmosphere.",
+      "Human activities release greenhouse gases that damage the atmosphere, causing more heat from the sun to reach Earth.",
+      "Human activities release greenhouse gases that are flammable, causing more intense forest fires which generates more heat.",
+      "Human activities release greenhouse gases which form a layer over the Earth’s surface, preventing the cold temperatures in space from cooling Earth."
     ],
-    correctIndex: 0
+    correctIndex: 0,
+    hint: "Look at the panel again – What do greenhouse gases in the atmosphere cause?"
+  },
+  10: {
+    id: 10,
+    title: "Every Move Matters",
+    pin: "4879",
+    question:
+      "Some Mercedes-Benz cars give waste a second life. Which of the following is a material used to make selected vehicle parts?",
+    options: [
+      "Newspapers",
+      "Old fishing nets",
+      "Aluminum cans",
+      "Glass bottles"
+    ],
+    correctIndex: 1,
+    hint: "Look at the “Materials” section closely!"
   }
 };
 
@@ -256,7 +424,7 @@ function renderScreen() {
   if (state.screen === "home") {
     appEl.innerHTML = `
       <section class="scrap-card no-margin-line">
-        <div class="washi-tape"></div>
+        <div class="washi-tape yellow"></div>
         <div class="progress-pill">Venue Challenge • 6 Questions</div>
         <h1 class="hand-title" style="font-size: 2rem;">Meet Your Sustainability Hero</h1>
         <p class="hand-note">
@@ -283,7 +451,7 @@ function renderScreen() {
     const q = QUESTIONS[state.qIndex];
     appEl.innerHTML = `
       <section class="scrap-card">
-        <div class="washi-tape teal"></div>
+        <div class="washi-tape green"></div>
         <div class="progress-pill">Question ${state.qIndex + 1} of ${QUESTIONS.length}</div>
         <h1 class="hand-title" style="font-size: 1.45rem;">${q.prompt}</h1>
         <div class="option-list">
@@ -320,7 +488,7 @@ function renderScreen() {
     const hero = CHARACTERS[state.role];
     appEl.innerHTML = `
       <section class="scrap-card no-margin-line">
-        <div class="washi-tape coral"></div>
+        <div class="washi-tape yellow"></div>
 
         <p class="reveal-eyebrow">You are...</p>
         <h1 class="reveal-hero-name">${hero.title.toUpperCase()}</h1>
@@ -337,20 +505,18 @@ function renderScreen() {
         <p class="hero-bio">${hero.description}</p>
       </section>
 
-      <section class="own-bestie-card">
-        <h2 class="own-bestie-heading">Your own eco bestie</h2>
-        <p class="own-bestie-note">${hero.ownBestieNote}</p>
-      </section>
+      <div class="bestie-row">
+        <div class="postit-note">
+          <div class="postit-text">Your Eco bestie</div>
+        </div>
 
-      <div class="bestie-section">
-        <div class="bestie-label">Your eco bestie</div>
         <div class="polaroid-frame">
           <img src="${hero.bestieImage}" alt="${hero.bestieLabel}" />
           <div class="polaroid-caption">${hero.bestieLabel}</div>
         </div>
-      </div>
 
-      <button id="open-pin-btn" class="primary-btn" type="button">${hero.ctaText}</button>
+        <button id="open-pin-btn" class="sticker-cta-btn" type="button">${hero.ctaText}</button>
+      </div>
     `;
 
     document.getElementById("open-pin-btn").addEventListener("click", () => {
@@ -373,7 +539,7 @@ function renderScreen() {
     appEl.innerHTML = `
       ${state.redeemed ? `<div class="redeemed-stamp">REDEEMED</div>` : ""}
       <section class="scrap-card no-margin-line">
-        <div class="washi-tape"></div>
+        <div class="washi-tape yellow"></div>
 
         <div class="reward-hero-wrap">
           <img class="reward-hero-img" src="${hero.image}" alt="${hero.title}" />
@@ -421,10 +587,10 @@ function renderModal() {
     modalRootEl.innerHTML = `
       <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pin-modal-title">
         <section class="scrap-card no-margin-line modal-card ${shakeClass}">
-          <div class="washi-tape teal"></div>
+          <div class="washi-tape green"></div>
           <h2 id="pin-modal-title" class="hand-title" style="font-size: 1.65rem;">Enter Board PIN</h2>
           <p class="hand-note" style="margin: 0;">
-            Head to <strong>Board #${hero.primaryBoardId}</strong> (${hero.title}) and enter its 4-digit PIN.
+            Head to <strong>Board #${hero.primaryBoardId}</strong> (${BOARDS[hero.primaryBoardId].title}) and enter its 4-digit PIN.
           </p>
           <input
             id="board-pin-input"
@@ -471,9 +637,12 @@ function renderModal() {
     modalRootEl.innerHTML = `
       <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="trivia-modal-title">
         <section class="scrap-card no-margin-line modal-card ${shakeClass}">
-          <div class="washi-tape coral"></div>
-          <div class="progress-pill">Board #${board.id} Challenge</div>
-          <h2 id="trivia-modal-title" class="hand-title" style="font-size: 1.45rem;">${board.question}</h2>
+          <div class="washi-tape green"></div>
+          <div class="progress-pill">Board #${board.id} • ${board.title}</div>
+          <h2 id="trivia-modal-title" class="hand-title" style="font-size: 1.35rem;">${board.question}</h2>
+          <p class="hero-bio" style="margin-bottom: 8px; color: var(--ink-muted);">
+            <strong>Hint:</strong> ${board.hint}
+          </p>
           <div class="option-list">
             ${board.options
               .map(
@@ -505,7 +674,7 @@ function renderModal() {
           state.screen = "reward";
           render();
         } else {
-          state.feedbackMessage = "Not quite! Give that trivia question another try.";
+          state.feedbackMessage = `Not quite! Hint: ${board.hint}`;
           state.shakeModal = true;
           render();
           setTimeout(() => {
@@ -541,7 +710,7 @@ function handlePinSubmit() {
   }
 
   if (matchedBoard.id !== hero.primaryBoardId) {
-    state.feedbackMessage = `That PIN belongs to Board #${matchedBoard.id}. Head to Board #${hero.primaryBoardId} for ${hero.title}!`;
+    state.feedbackMessage = `That PIN belongs to Board #${matchedBoard.id} (${matchedBoard.title}). Head to Board #${hero.primaryBoardId} for ${hero.title}!`;
     state.shakeModal = true;
     render();
     setTimeout(() => {
