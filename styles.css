@@ -7,12 +7,14 @@
   --ink-muted: #5c544b;
   --accent-green: #2d6a4f;
   --accent-green-dark: #1b4332;
+  --tape-green: rgba(82, 183, 136, 0.78);
+  --tape-green-alt: rgba(116, 198, 157, 0.78);
   --accent-amber: #d97706;
   --danger-red: #c1121f;
   --shadow-card: 0 8px 16px rgba(0, 0, 0, 0.2);
-  --font-hand: "Caveat", cursive;
-  --font-note: "Patrick Hand", cursive;
-  --font-ui: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-header: "Playfair Display", Georgia, serif;
+  --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-handwriting: "Rock Salt", cursive;
 }
 
 * {
@@ -25,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100dvh;
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   color: var(--ink);
   background-color: var(--cork-fallback);
   background-image:
@@ -41,7 +43,7 @@ body {
   width: 100%;
   max-width: 480px;
   min-height: 100dvh;
-  padding: 20px 16px 36px;
+  padding: 16px 14px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,13 +64,13 @@ body {
       var(--paper-line) 28px
     );
   border-radius: 6px;
-  padding: 26px 20px 22px 44px;
+  padding: 22px 18px 18px 42px;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .scrap-card.no-margin-line {
-  padding-left: 20px;
+  padding-left: 18px;
   background-image: repeating-linear-gradient(
     to bottom,
     transparent 0px,
@@ -78,23 +80,24 @@ body {
   );
 }
 
-/* Washi tape & pushpins */
+/* Green washi tape accents (red pushpin removed) */
 .washi-tape {
   position: absolute;
-  top: -11px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%) rotate(-2deg);
   width: 112px;
-  height: 24px;
-  background: rgba(255, 190, 11, 0.72);
+  height: 22px;
+  background: var(--tape-green);
   border-left: 2px dashed rgba(255, 255, 255, 0.65);
   border-right: 2px dashed rgba(255, 255, 255, 0.65);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14);
   z-index: 3;
 }
 
-.washi-tape.teal {
-  background: rgba(72, 202, 228, 0.72);
+.washi-tape.teal,
+.washi-tape.green {
+  background: var(--tape-green-alt);
   transform: translateX(-50%) rotate(2deg);
 }
 
@@ -103,49 +106,66 @@ body {
   transform: translateX(-50%) rotate(-1.5deg);
 }
 
-.pushpin {
-  position: absolute;
-  top: -8px;
-  right: 18px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 30%, #ff8fa3, var(--danger-red) 72%);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.32);
-  z-index: 4;
-}
-
 .hand-title {
-  font-family: var(--font-hand);
-  font-weight: 700;
-  line-height: 1.05;
-  margin: 0 0 10px;
+  font-family: var(--font-header);
+  font-weight: 800;
+  line-height: 1.12;
+  margin: 0 0 8px;
 }
 
 .hand-note {
-  font-family: var(--font-note);
-  font-size: 1.15rem;
-  line-height: 1.35;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.38;
+}
+
+/* Reveal header arrangement: "You are..." above hero role name */
+.reveal-eyebrow {
+  font-family: var(--font-header);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink-muted);
+  margin: 0 0 2px;
+}
+
+.reveal-hero-name {
+  font-family: var(--font-header);
+  font-size: 1.55rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.08;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.reveal-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-green-dark);
+  margin-bottom: 6px;
 }
 
 .progress-pill {
   display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: #efe6c8;
   color: var(--ink);
   padding: 5px 10px;
   border-radius: 999px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .option-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 14px;
 }
 
 .option-btn {
@@ -155,8 +175,8 @@ body {
   border: 2px solid #d8cfb8;
   border-radius: 10px;
   padding: 12px 14px;
-  font-family: var(--font-ui);
-  font-size: 0.94rem;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
   line-height: 1.38;
   color: var(--ink);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -172,16 +192,16 @@ body {
 
 .primary-btn {
   width: 100%;
-  margin-top: 16px;
-  padding: 14px 18px;
+  margin-top: 8px;
+  padding: 11px 14px;
   border: none;
   border-radius: 12px;
   background: var(--accent-green);
   color: #ffffff;
-  font-family: var(--font-ui);
-  font-size: 1rem;
+  font-family: var(--font-header);
+  font-size: 0.92rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
@@ -194,75 +214,150 @@ body {
 /* Printed hero artwork (NOT a Polaroid) */
 .hero-print-wrap {
   position: relative;
-  width: 100%;
-  max-width: 270px;
-  margin: 8px auto 14px;
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 2px auto 6px;
 }
 
 .hero-print-img {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 175px;
+  object-fit: contain;
   border-radius: 4px;
   box-shadow: var(--shadow-card);
-  border: 3px solid #ffffff;
+  border: 2px solid #ffffff;
+}
+
+/* Reward screen hero image + crown aligned at identical pixel dimensions */
+.reward-hero-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  margin: 8px auto 12px;
+}
+
+.reward-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: var(--shadow-card);
+  border: 2px solid #ffffff;
 }
 
 .crown-overlay {
   position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-4deg);
-  width: 92px;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   pointer-events: none;
-  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, 0.28));
   z-index: 5;
 }
 
 .trait-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin: 10px 0 12px;
+  gap: 5px;
+  margin: 4px 0 6px;
 }
 
 .trait-tag {
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   background: #e9f5db;
   color: var(--accent-green-dark);
-  padding: 4px 8px;
+  padding: 2px 7px;
   border-radius: 6px;
   border: 1px solid rgba(45, 106, 79, 0.25);
 }
 
-/* Eco Bestie Polaroid frame with name at bottom */
+.hero-bio {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  line-height: 1.32;
+}
+
+/* Compact Eco Bestie strip on scrapbook paper + Polaroid */
 .bestie-section {
-  margin-top: 18px;
+  margin-top: 7px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--paper-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    var(--paper-line) 23px,
+    var(--paper-line) 24px
+  );
+  padding: 7px 11px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .bestie-label {
-  font-family: var(--font-hand);
-  font-size: 1.35rem;
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
-  margin-bottom: 8px;
+  font-family: var(--font-handwriting);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* "Your own eco bestie" reveal card on scrapbook paper */
+.own-bestie-card {
+  margin-top: 7px;
+  background-color: var(--paper-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 23px,
+    var(--paper-line) 23px,
+    var(--paper-line) 24px
+  );
+  padding: 8px 11px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.own-bestie-heading {
+  font-family: var(--font-handwriting);
+  font-size: 0.84rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.own-bestie-note {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0;
 }
 
 .polaroid-frame {
-  width: 164px;
+  flex-shrink: 0;
+  width: 78px;
   background: #ffffff;
-  padding: 9px 9px 12px;
+  padding: 4px 4px 7px;
   border-radius: 3px;
-  box-shadow: var(--shadow-card);
-  transform: rotate(2.5deg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  transform: rotate(2deg);
   text-align: center;
 }
 
@@ -274,12 +369,33 @@ body {
 }
 
 .polaroid-caption {
-  margin-top: 8px;
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
-  font-weight: 700;
+  margin-top: 5px;
+  font-family: var(--font-handwriting);
+  font-size: 0.52rem;
+  font-weight: 400;
   color: var(--ink);
-  line-height: 1.1;
+  line-height: 1.45;
+}
+
+/* No-scroll viewport optimization for the reveal screen */
+.reveal-screen {
+  min-height: 100dvh;
+  padding-top: 12px;
+  padding-bottom: 14px;
+  justify-content: space-between;
+}
+
+.reveal-screen .scrap-card {
+  padding: 14px 12px 10px;
+  text-align: center;
+}
+
+.reveal-screen .trait-row {
+  justify-content: center;
+}
+
+.reveal-screen .hero-bio {
+  text-align: left;
 }
 
 /* Pop-up modals */
@@ -303,9 +419,9 @@ body {
   width: 100%;
   margin-top: 12px;
   padding: 12px;
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.35em;
   text-align: center;
   border-radius: 10px;
@@ -320,13 +436,14 @@ body {
   border-radius: 8px;
   background: #fff3cd;
   border-left: 4px solid var(--accent-amber);
-  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
   color: #3d2c00;
 }
 
 .token-badge {
-  margin: 14px 0;
-  padding: 12px;
+  margin: 12px 0;
+  padding: 10px;
   border-radius: 10px;
   background: #f4f1de;
   border: 2px dashed var(--accent-green);
@@ -334,7 +451,8 @@ body {
 }
 
 .token-code {
-  font-size: 1.55rem;
+  font-family: var(--font-header);
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--accent-green-dark);
@@ -344,13 +462,13 @@ body {
 .hold-btn {
   position: relative;
   width: 100%;
-  margin-top: 14px;
-  padding: 15px 16px;
+  margin-top: 12px;
+  padding: 14px 16px;
   border-radius: 12px;
   border: 2px solid var(--ink);
   background: #ffffff;
   color: var(--ink);
-  font-family: var(--font-ui);
+  font-family: var(--font-header);
   font-size: 0.98rem;
   font-weight: 800;
   overflow: hidden;
@@ -382,6 +500,7 @@ body {
   color: var(--danger-red);
   background: rgba(255, 253, 240, 0.9);
   padding: 10px 24px;
+  font-family: var(--font-header);
   font-size: 2.1rem;
   font-weight: 900;
   letter-spacing: 0.14em;

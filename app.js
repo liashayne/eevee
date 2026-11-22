@@ -1,72 +1,3 @@
-const QUESTIONS = [
-  {
-    id: "q1",
-    text: "What’s your ideal way to spend a chill Saturday morning?",
-    isTieBreaker: true,
-    options: [
-      { key: "A", label: "Heading outdoors for a walk in nature to unwind and recharge.", role: "B" },
-      { key: "B", label: "Tinkering with a fun craft or project and letting my creative juices flow.", role: "A" },
-      { key: "C", label: "Journaling, reflecting on the week, and catching up on an insightful podcast or book.", role: "D" },
-      { key: "D", label: "Preparing a cozy homemade meal to share with people I love.", role: "C" }
-    ]
-  },
-  {
-    id: "q2",
-    text: "What do you like most about starting a new project?",
-    isTieBreaker: false,
-    options: [
-      { key: "A", label: "Designing the master blueprint—mapping out how all the moving pieces fit into the big picture.", role: "D" },
-      { key: "B", label: "Encouraging the team - making sure that everyone is well-fed, energised and ready to collaborate", role: "C" },
-      { key: "C", label: "Making the physical or digital prototype—turning an abstract idea into something tangible.", role: "A" },
-      { key: "D", label: "Doing the preliminary fieldwork—getting out into the space, observing details, and gathering facts.", role: "B" }
-    ]
-  },
-  {
-    id: "q3",
-    text: "What kind of environment helps you to think?",
-    isTieBreaker: false,
-    options: [
-      { key: "A", label: "A dynamic work space packed with different tools and materials.", role: "A" },
-      { key: "B", label: "A quiet nook with a cup of coffee/tea and a notebook.", role: "D" },
-      { key: "C", label: "A calming space in nature surrounded by greenery.", role: "B" },
-      { key: "D", label: "A warm communal space filled with conversation, food, and good energy.", role: "C" }
-    ]
-  },
-  {
-    id: "q4",
-    text: "What is/was your favourite subject in school?",
-    isTieBreaker: false,
-    options: [
-      { key: "A", label: "Home Economics/Food and Consumer Education (FCE): Learning how to put together a delicious and nutritious menu", role: "C" },
-      { key: "B", label: "Biology/Geography: Understanding ecosystems, and how the physical world works.", role: "B" },
-      { key: "C", label: "History/Social Studies: Understanding how our actions affect the world around us", role: "D" },
-      { key: "D", label: "Design & Technology/Art: Hands-on creation and bringing ideas to life visually.", role: "A" }
-    ]
-  },
-  {
-    id: "q5",
-    text: "What is your favourite movie genre?",
-    isTieBreaker: false,
-    options: [
-      { key: "A", label: "Nature Documentaries: Immersive, grounded stories showcasing hidden natural wonders.", role: "B" },
-      { key: "B", label: "Sci-Fi: Full of futuristic gadgets and cool visual effects.", role: "A" },
-      { key: "C", label: "Thrillers/Dramas: Complex narratives packed with strategy and high-stakes decisions.", role: "D" },
-      { key: "D", label: "Romantic Comedies/Reality TV: Feel-good stories centered around human connection and community.", role: "C" }
-    ]
-  },
-  {
-    id: "q6",
-    text: "What's your travel style when exploring a brand-new city?",
-    isTieBreaker: false,
-    options: [
-      { key: "A", label: "Visiting national museums and learning the history and culture of a city.", role: "D" },
-      { key: "B", label: "Visiting bustling local markets and eating where the locals gather.", role: "C" },
-      { key: "C", label: "Hunting down hidden creative spaces and visiting modern design museums.", role: "A" },
-      { key: "D", label: "Exploring natural parks, botanical reserves, and coastal trails.", role: "B" }
-    ]
-  }
-];
-
 const CHARACTERS = {
   A: {
     role: "A",
@@ -75,6 +6,8 @@ const CHARACTERS = {
     traits: ["CREATIVE TINKERER", "SYSTEMS BUILDER", "TECH INNOVATOR"],
     description:
       "You are the one who naturally brings abstract ideas to life. You love figuring out how things work, building prototypes, and designing smart solutions that make sustainability functional and exciting.",
+    ownBestieNote:
+      "Your best match is someone who spots everyday community needs while you engineer clever, hands-on fixes together.",
     image: "./assets/roles/role-a.jpg",
     bestieLabel: "The Climate Changemaker",
     bestieImage: "./assets/roles/role-d.jpg",
@@ -85,35 +18,41 @@ const CHARACTERS = {
     role: "B",
     title: "The Wildlife Guardian",
     subtitle: "The Protector",
-    traits: ["GROUND-UP RESEARCHER", "NATURE LOVER", "DETAIL-ORIENTED"],
+    traits: ["NATURE DEFENDER", "EMPATHETIC OBSERVER", "HABITAT STEWARD"],
     description:
-      "You are the one who wholeheartedly connects with the natural world. You value ground-level facts, care deeply about preserving biodiversity, and notice the critical ecological details others often miss.",
+      "You notice the quiet details of the living world that others rush past. You care deeply about protecting ecosystems, biodiversity, and the creatures that share our spaces.",
+    ownBestieNote:
+      "Your best match is someone who brings vibrant energy to shared meals and gatherings while keeping nature front and center.",
     image: "./assets/roles/role-b.jpg",
     bestieLabel: "The Food Lover",
     bestieImage: "./assets/roles/role-c.jpg",
-    primaryBoardId: 6,
+    primaryBoardId: 3,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   },
   C: {
     role: "C",
     title: "The Food Lover",
-    subtitle: "The Collaborator",
-    traits: ["COMMUNITY CONNECTOR", "COLLABORATION BUILDER", "WARM PRESENCE"],
+    subtitle: "The Nourisher",
+    traits: ["CONSCIOUS TASTER", "COMMUNITY CONNECTOR", "SEASONAL CURATOR"],
     description:
-      "You are the one who naturally brings people together. Whether through shared meals, community spaces, or fostering local collaboration, you know that sustainability thrives on human connection.",
+      "For you, sustainability starts at the table. You celebrate local ingredients, mindful sourcing, and the joy of bringing people together over food that respects both craft and planet.",
+    ownBestieNote:
+      "Your best match is someone who protects the land and wildlife behind every ingredient you love sharing.",
     image: "./assets/roles/role-c.jpg",
     bestieLabel: "The Wildlife Guardian",
     bestieImage: "./assets/roles/role-b.jpg",
-    primaryBoardId: 3,
+    primaryBoardId: 6,
     ctaText: "Unlock Your Gift at Your Board (While Stocks Last)!"
   },
   D: {
     role: "D",
     title: "The Climate Changemaker",
-    subtitle: "The Visionary",
-    traits: ["MACRO THINKER", "PATTERN FINDER", "STRATEGIC PLANNER"],
+    subtitle: "The Catalyst",
+    traits: ["BOLD ADVOCATE", "ACTION SPARK", "FUTURE VISIONARY"],
     description:
-      "You are the one who naturally zooms out to see the whole board. You analyse global trends, understand complex policy systems, and look for deep structural solutions to secure a sustainable future.",
+      "You turn concern into momentum. Whether rallying friends, starting conversations, or pushing for greener choices, you help others see that small collective actions add up fast.",
+    ownBestieNote:
+      "Your best match is someone who turns your big momentum into practical prototypes and lasting systems.",
     image: "./assets/roles/role-d.jpg",
     bestieLabel: "The Eco-Architect",
     bestieImage: "./assets/roles/role-a.jpg",
@@ -122,258 +61,218 @@ const CHARACTERS = {
   }
 };
 
-const BOARDS = [
+const QUESTIONS = [
   {
     id: 1,
-    title: "Too Cool for Fuel",
-    pin: "1235",
-    question:
-      "The Flower Dome is cooled using alternative cooling technologies. Complete the sentence: By only cooling ________________, less energy is used.",
+    prompt: "When you walk into a creative space or venue, what catches your eye first?",
     options: [
-      "the walls of the Flower Dome",
-      "the glass panels of the Flower Dome",
-      "the area of the Flower Dome where plants and people are present",
-      "the planter boxes in the Flower Dome"
-    ],
-    correctIndex: 2,
-    hint: "Who/What benefits from the cool air?"
+      { text: "Clever structures, upcycled materials, and how the space is put together", role: "A" },
+      { text: "Plants, natural textures, and signs of care for living things", role: "B" },
+      { text: "Where snacks or drinks come from and how thoughtfully they're prepared", role: "C" },
+      { text: "Ideas, messages, and energy that inspire people to take action", role: "D" }
+    ]
   },
   {
     id: 2,
-    title: "Guardians of the Grove",
-    pin: "5462",
-    question:
-      "Global warming causes unfavourable weather conditions for all plants grown for food, including olive trees. One of the consequences of this is smaller harvests. What are the consequences of a smaller harvest for humans?",
+    prompt: "A friend wants to start a greener habit this week. How do you help?",
     options: [
-      "Less food is produced for local consumption.",
-      "Less food is produced for export, affecting the country’s economy.",
-      "Local farmers earn less.",
-      "All of the above."
-    ],
-    correctIndex: 3,
-    hint: "Global warming has widespread impact."
+      { text: "Help them set up a practical system or DIY swap that makes it effortless", role: "A" },
+      { text: "Share how it protects local habitats, animals, or natural spaces", role: "B" },
+      { text: "Suggest a tasty local or low-waste food swap they'll actually look forward to", role: "C" },
+      { text: "Cheer them on, keep them motivated, and invite others to join in", role: "D" }
+    ]
   },
   {
     id: 3,
-    title: "Grow it Yourself!",
-    pin: "2168",
-    question:
-      "Gardening enthusiasts in the neighbourhood often work together to start and look after community gardens, providing both social and environmental benefits. Which of the following is a social benefit of having community gardens in neighbourhoods?",
+    prompt: "Which weekend project sounds most fun to you?",
     options: [
-      "They attract pollinators like birds and insects.",
-      "They provide a space for people to meet and build friendships.",
-      "They beautify the neighbourhood.",
-      "They provide fresh ingredients for local residents."
-    ],
-    correctIndex: 1,
-    hint: "“Social” refers to human connection and community building. How do community gardens improve community ties?"
+      { text: "Building, fixing, or designing something useful from scratch", role: "A" },
+      { text: "Spending time outdoors learning about native plants and wildlife", role: "B" },
+      { text: "Experimenting with seasonal recipes or visiting a farmers' market", role: "C" },
+      { text: "Hosting a mini swap, cleanup, or campaign with friends", role: "D" }
+    ]
   },
   {
     id: 4,
-    title: "Green is Cool",
-    pin: "3548",
-    question: "Why are the Supertrees covered with many plants?",
+    prompt: "What kind of impact makes you feel proudest?",
     options: [
-      "The plants help to keep their surroundings cool.",
-      "The roots of the plants keep the Supertrees upright.",
-      "The plants prevent mosquito breeding by absorbing water from the Supertrees.",
-      "The plants absorb nutrients from the Supertree."
-    ],
-    correctIndex: 0,
-    hint: "Look at the panel again - Other than beautifying the Supertrees, what is another benefit of growing plants on the Supertrees?"
+      { text: "Making a smart, durable solution that works in real life", role: "A" },
+      { text: "Helping living creatures and natural environments thrive", role: "B" },
+      { text: "Connecting people through good food and mindful choices", role: "C" },
+      { text: "Sparking conversations and shifting habits across a group", role: "D" }
+    ]
   },
   {
     id: 5,
-    title: "The Lake Cycle",
-    pin: "8798",
-    question: "Which of the Four National Taps does Dragonfly Lake contribute to?",
+    prompt: "Pick the scrapbook sticker or item you'd add to your board:",
     options: [
-      "Water from local catchment",
-      "NEWater",
-      "Imported water",
-      "Desalinated water"
-    ],
-    correctIndex: 0,
-    hint: "Where does water from Dragonfly Lake flow into?"
+      { text: "A blueprint sketch or mini tool kit", role: "A" },
+      { text: "A pressed leaf, bird illustration, or forest badge", role: "B" },
+      { text: "A citrus slice, herb sprig, or recipe card", role: "C" },
+      { text: "A megaphone, sunburst, or 'Let's Go!' banner", role: "D" }
+    ]
   },
   {
     id: 6,
-    title: "The Amazon River",
-    pin: "5468",
-    question:
-      "Singapore may be far away from the Amazon, but we can also do our part to protect its biodiversity. What should we avoid doing to protect biodiversity in the Amazon?",
+    prompt: "How do you usually approach a big sustainability challenge?",
     options: [
-      "Choose paper products from sustainable sources",
-      "Learn about the Amazon and share what we have learnt with our family and friends",
-      "Use more paper",
-      "Reduce our consumption of beef, palm oil, and soybeans."
-    ],
-    correctIndex: 2,
-    hint: "pssstt...the question is asking for what we should AVOID"
-  },
-  {
-    id: 7,
-    title: "Superpowered Supertrees",
-    pin: "8756",
-    question:
-      "The Supertrees are part of Gardens by the Bay’s sustainability efforts. How do the Supertrees help to power the Gardens sustainably?",
-    options: [
-      "Turbines on the top of the Supertrees are turned when it is windy, converting kinetic energy into electricity.",
-      "Turbines on the top of the Supertrees are turned when there is heavy rain, converting kinetic energy into electricity.",
-      "Solar panels on the top of the Supertrees absorb solar energy which is converted into electricity.",
-      "The Supertrees absorb heat which is used to generate steam. The steam turns turbines in a room under the Supertrees."
-    ],
-    correctIndex: 2,
-    hint: "The Supertrees light up beautifully every night. Where do you think that energy was collected during the day?"
-  },
-  {
-    id: 8,
-    title: "Food for Thought",
-    pin: "1568",
-    question:
-      "Climate change has affected farmers and the crops they grow. Should climate change worsen, food supplies around the world will be affected. How does climate change affect food supplies?",
-    options: [
-      "Crops grow poorly due to unfavourable weather conditions. Farmers are unable to grow enough food.",
-      "More storms occur due to unpredictable weather patterns. Ships and airplanes face difficulties transporting food around the world.",
-      "More heat-related injuries are occurring due to increasing temperatures. Farmers spend less time in the fields to prevent heatstroke.",
-      "Roads are cut off due to more intense flooding. Trucks are unable to deliver equipment and supplies that farmers need."
-    ],
-    correctIndex: 0,
-    hint: "“Food supplies” refers to the amount of food available. How does climate change affect the amount of food produced?"
-  },
-  {
-    id: 9,
-    title: "Climate Change - A Global Problem",
-    pin: "9849",
-    question: "How do human activities speed up climate change?",
-    options: [
-      "Human activities release more greenhouse gases than needed to keep Earth warm, causing more heat to be trapped in the atmosphere.",
-      "Human activities release greenhouse gases that damage the atmosphere, causing more heat from the sun to reach Earth.",
-      "Human activities release greenhouse gases that are flammable, causing more intense forest fires which generates more heat.",
-      "Human activities release greenhouse gases which form a layer over the Earth’s surface, preventing the cold temperatures in space from cooling Earth."
-    ],
-    correctIndex: 0,
-    hint: "Look at the panel again – What do greenhouse gases in the atmosphere cause?"
-  },
-  {
-    id: 10,
-    title: "Every Move Matters",
-    pin: "4879",
-    question:
-      "Some Mercedes-Benz cars give waste a second life. Which of the following is a material used to make selected vehicle parts?",
-    options: [
-      "Newspapers",
-      "Old fishing nets",
-      "Aluminum cans",
-      "Glass bottles"
-    ],
-    correctIndex: 1,
-    hint: "Look at the “Materials” section closely!"
+      { text: "Break it down into parts and prototype a workable fix", role: "A" },
+      { text: "Start by protecting what's most vulnerable around you", role: "B" },
+      { text: "Look at daily routines—especially what we eat and share", role: "C" },
+      { text: "Rally people together and keep the momentum going", role: "D" }
+    ]
   }
 ];
 
-const STORAGE_KEY = "eevee_game_session_v1";
-
-function generateEcoToken() {
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let code = "";
-  for (let i = 0; i < 4; i += 1) {
-    code += chars[Math.floor(Math.random() * chars.length)];
+const BOARDS = {
+  1: {
+    id: 1,
+    pin: "1042",
+    question: "Board #1 Trivia: What is a key benefit of designing modular or repairable items?",
+    options: [
+      "They extend product lifespan and reduce whole-item waste",
+      "They require single-use glue so parts never separate",
+      "They must be thrown away as soon as one piece wears out"
+    ],
+    correctIndex: 0
+  },
+  3: {
+    id: 3,
+    pin: "3087",
+    question: "Board #3 Trivia: Why do native plants matter so much for local wildlife?",
+    options: [
+      "They provide familiar food and shelter adapted to local pollinators and birds",
+      "They stop all insects from visiting a garden",
+      "They need heavy chemical treatments every week"
+    ],
+    correctIndex: 0
+  },
+  6: {
+    id: 6,
+    pin: "6159",
+    question: "Board #6 Trivia: What is one simple way to cut food waste at home or events?",
+    options: [
+      "Plan portions ahead and store or repurpose leftovers creatively",
+      "Cook double portions with no plan for extras",
+      "Buy perishable items only when already overripe"
+    ],
+    correctIndex: 0
+  },
+  9: {
+    id: 9,
+    pin: "9274",
+    question: "Board #9 Trivia: Why does community action matter in climate solutions?",
+    options: [
+      "Shared habits and group norms multiply individual effort into visible change",
+      "Group efforts never influence what others try",
+      "Only silent, isolated actions can ever inspire others"
+    ],
+    correctIndex: 0
   }
-  return `#ECO-${code}`;
-}
+};
 
-function loadSavedSession() {
+const STORAGE_KEY = "eevee_quiz_session_v1";
+
+const state = {
+  screen: "home",
+  qIndex: 0,
+  answers: [],
+  role: null,
+  modal: null,
+  selectedBoardId: null,
+  pinInput: "",
+  feedbackMessage: "",
+  shakeModal: false,
+  token: null,
+  redeemed: false
+};
+
+let holdTimerId = null;
+let holdRafId = null;
+
+function loadSession() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null;
-  } catch {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (_) {
     return null;
   }
 }
 
-function saveSession(session) {
+function saveSession(data) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
-  } catch {
-    // Ignore storage quota or private mode restrictions
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch (_) {
+    // Ignore storage quota or private mode errors
   }
 }
 
-function calculateMatchedRole(answers) {
-  const tally = { A: 0, B: 0, C: 0, D: 0 };
-  answers.forEach((opt) => {
-    if (opt && tally[opt.role] !== undefined) {
-      tally[opt.role] += 1;
+function calculateRole(answers) {
+  const counts = { A: 0, B: 0, C: 0, D: 0 };
+  for (const r of answers) {
+    if (counts[r] !== undefined) counts[r] += 1;
+  }
+
+  let topScore = -1;
+  let tiedRoles = [];
+  for (const roleKey of ["A", "B", "C", "D"]) {
+    if (counts[roleKey] > topScore) {
+      topScore = counts[roleKey];
+      tiedRoles = [roleKey];
+    } else if (counts[roleKey] === topScore) {
+      tiedRoles.push(roleKey);
     }
-  });
-
-  const maxVotes = Math.max(...Object.values(tally));
-  const topRoles = Object.keys(tally).filter((role) => tally[role] === maxVotes);
-
-  if (topRoles.length === 1) {
-    return topRoles[0];
   }
 
-  // Question 1 explicit tie-breaker
-  const q1Role = answers[0]?.role;
-  if (q1Role && topRoles.includes(q1Role)) {
-    return q1Role;
-  }
-
-  return topRoles[0];
+  if (tiedRoles.length === 1) return tiedRoles[0];
+  const q1Role = answers[0];
+  if (q1Role && tiedRoles.includes(q1Role)) return q1Role;
+  return tiedRoles[0] || "A";
 }
 
-const state = {
-  screen: "home", // "home" | "quiz" | "reveal" | "reward"
-  questionIndex: 0,
-  answers: [],
-  role: null,
-  token: null,
-  redeemed: false,
-  modal: null, // null | "pin" | "trivia"
-  shakeModal: false,
-  feedbackMessage: ""
-};
+function generateToken(role) {
+  const randomDigits = Math.floor(1000 + Math.random() * 9000);
+  return `EEVEE-${role}-${randomDigits}`;
+}
 
-// Restore completed reward session if already claimed on this device
-const saved = loadSavedSession();
-if (saved && saved.role && saved.token) {
-  state.role = saved.role;
-  state.token = saved.token;
-  state.redeemed = Boolean(saved.redeemed);
-  state.screen = "reward";
+function findBoardByPin(pin) {
+  const trimmed = String(pin || "").trim();
+  return Object.values(BOARDS).find((b) => b.pin === trimmed) || null;
 }
 
 const appEl = document.getElementById("app");
 const modalRootEl = document.getElementById("modal-root");
 
-function getAssignedBoard() {
-  const hero = CHARACTERS[state.role];
-  return BOARDS.find((b) => b.id === hero?.primaryBoardId) || BOARDS[0];
-}
-
 function render() {
+  clearHoldAnimation();
   renderScreen();
   renderModal();
 }
 
 function renderScreen() {
+  appEl.classList.toggle("reveal-screen", state.screen === "reveal");
+
   if (state.screen === "home") {
     appEl.innerHTML = `
-      <section class="scrap-card">
+      <section class="scrap-card no-margin-line">
         <div class="washi-tape"></div>
-        <div class="pushpin"></div>
-        <h1 class="hand-title" style="font-size: 2.5rem;">Discover Your Sustainability Hero!</h1>
+        <div class="progress-pill">Venue Challenge • 6 Questions</div>
+        <h1 class="hand-title" style="font-size: 2rem;">Meet Your Sustainability Hero</h1>
         <p class="hand-note">
-          6 quick questions to match your eco personality—then visit your board to unlock a gift.
+          Take a quick 6-question quiz to uncover your eco archetype, match with your eco bestie,
+          and unlock a board reward at the venue.
         </p>
         <button id="start-quiz-btn" class="primary-btn" type="button">Start Quiz</button>
       </section>
     `;
+
     document.getElementById("start-quiz-btn").addEventListener("click", () => {
       state.screen = "quiz";
-      state.questionIndex = 0;
+      state.qIndex = 0;
       state.answers = [];
+      state.role = null;
+      state.modal = null;
       state.feedbackMessage = "";
       render();
     });
@@ -381,19 +280,18 @@ function renderScreen() {
   }
 
   if (state.screen === "quiz") {
-    const q = QUESTIONS[state.questionIndex];
+    const q = QUESTIONS[state.qIndex];
     appEl.innerHTML = `
       <section class="scrap-card">
         <div class="washi-tape teal"></div>
-        <div class="pushpin"></div>
-        <span class="progress-pill">Question ${state.questionIndex + 1} of ${QUESTIONS.length}</span>
-        <h2 class="hand-title" style="font-size: 1.95rem;">${q.text}</h2>
+        <div class="progress-pill">Question ${state.qIndex + 1} of ${QUESTIONS.length}</div>
+        <h1 class="hand-title" style="font-size: 1.45rem;">${q.prompt}</h1>
         <div class="option-list">
           ${q.options
             .map(
               (opt, idx) => `
-                <button class="option-btn" type="button" data-opt-index="${idx}">
-                  <strong>${opt.key})</strong> ${opt.label}
+                <button class="option-btn" type="button" data-option-idx="${idx}">
+                  ${opt.text}
                 </button>
               `
             )
@@ -404,13 +302,12 @@ function renderScreen() {
 
     appEl.querySelectorAll(".option-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const idx = Number(btn.dataset.optIndex);
-        state.answers[state.questionIndex] = q.options[idx];
-
-        if (state.questionIndex < QUESTIONS.length - 1) {
-          state.questionIndex += 1;
+        const idx = Number(btn.getAttribute("data-option-idx"));
+        state.answers.push(q.options[idx].role);
+        if (state.qIndex + 1 < QUESTIONS.length) {
+          state.qIndex += 1;
         } else {
-          state.role = calculateMatchedRole(state.answers);
+          state.role = calculateRole(state.answers);
           state.screen = "reveal";
         }
         render();
@@ -424,24 +321,29 @@ function renderScreen() {
     appEl.innerHTML = `
       <section class="scrap-card no-margin-line">
         <div class="washi-tape coral"></div>
-        <div class="pushpin"></div>
+
+        <p class="reveal-eyebrow">You are...</p>
+        <h1 class="reveal-hero-name">${hero.title.toUpperCase()}</h1>
+        <div class="reveal-subtitle">${hero.subtitle}</div>
 
         <div class="hero-print-wrap">
           <img class="hero-print-img" src="${hero.image}" alt="${hero.title}" />
         </div>
 
-        <h1 class="hand-title" style="font-size: 2.35rem;">You are ${hero.title.toUpperCase()}.</h1>
-        <div class="hand-note" style="font-weight: 700; font-size: 1.3rem;">${hero.subtitle}</div>
-
         <div class="trait-row">
           ${hero.traits.map((t) => `<span class="trait-tag">${t}</span>`).join("")}
         </div>
 
-        <p style="margin: 0; font-size: 0.95rem; line-height: 1.45;">${hero.description}</p>
+        <p class="hero-bio">${hero.description}</p>
+      </section>
+
+      <section class="own-bestie-card">
+        <h2 class="own-bestie-heading">Your own eco bestie</h2>
+        <p class="own-bestie-note">${hero.ownBestieNote}</p>
       </section>
 
       <div class="bestie-section">
-        <div class="bestie-label">Your eco bestie:</div>
+        <div class="bestie-label">Your eco bestie</div>
         <div class="polaroid-frame">
           <img src="${hero.bestieImage}" alt="${hero.bestieLabel}" />
           <div class="polaroid-caption">${hero.bestieLabel}</div>
@@ -472,14 +374,13 @@ function renderScreen() {
       ${state.redeemed ? `<div class="redeemed-stamp">REDEEMED</div>` : ""}
       <section class="scrap-card no-margin-line">
         <div class="washi-tape"></div>
-        <div class="pushpin"></div>
 
-        <div class="hero-print-wrap" style="margin-top: 26px;">
+        <div class="reward-hero-wrap">
+          <img class="reward-hero-img" src="${hero.image}" alt="${hero.title}" />
           <img class="crown-overlay" src="./assets/victory-crown.png" alt="Victory Crown" />
-          <img class="hero-print-img" src="${hero.image}" alt="${hero.title}" />
         </div>
 
-        <h1 class="hand-title" style="font-size: 2.25rem; text-align: center;">${hero.title}</h1>
+        <h1 class="hand-title" style="font-size: 2rem; text-align: center;">${hero.title}</h1>
 
         <div class="token-badge">
           <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--ink-muted);">
@@ -495,7 +396,7 @@ function renderScreen() {
               </div>`
             : `<button id="hold-redeem-btn" class="hold-btn" type="button">
                 <span class="hold-fill"></span>
-                <span class="hold-label">Staff Verification (Hold 2s to Stamp)</span>
+                <span class="hold-label">Staff Verification</span>
               </button>`
         }
       </section>
@@ -508,66 +409,71 @@ function renderScreen() {
 }
 
 function renderModal() {
-  const board = getAssignedBoard();
-
   if (!state.modal) {
     modalRootEl.innerHTML = "";
     return;
   }
 
+  const hero = CHARACTERS[state.role];
+  const shakeClass = state.shakeModal ? "shake" : "";
+
   if (state.modal === "pin") {
     modalRootEl.innerHTML = `
-      <div class="modal-backdrop" role="dialog" aria-modal="true">
-        <div class="scrap-card no-margin-line modal-card ${state.shakeModal ? "shake" : ""}">
+      <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="pin-modal-title">
+        <section class="scrap-card no-margin-line modal-card ${shakeClass}">
           <div class="washi-tape teal"></div>
-          <h2 class="hand-title" style="font-size: 1.85rem;">
-            Find "${board.title}" and key in the 4 digit pin
-          </h2>
+          <h2 id="pin-modal-title" class="hand-title" style="font-size: 1.65rem;">Enter Board PIN</h2>
+          <p class="hand-note" style="margin: 0;">
+            Head to <strong>Board #${hero.primaryBoardId}</strong> (${hero.title}) and enter its 4-digit PIN.
+          </p>
           <input
-            id="pin-input"
+            id="board-pin-input"
             class="pin-input"
             type="text"
             inputmode="numeric"
-            pattern="[0-9]*"
             maxlength="4"
             placeholder="••••"
+            value="${state.pinInput}"
             autocomplete="off"
           />
           ${state.feedbackMessage ? `<div class="feedback-box">${state.feedbackMessage}</div>` : ""}
-          <button id="submit-pin-btn" class="primary-btn" type="button">Unlock Trivia</button>
-        </div>
+          <button id="submit-pin-btn" class="primary-btn" type="button">Verify PIN</button>
+          <button id="close-modal-btn" class="option-btn" style="margin-top: 8px; text-align: center;" type="button">
+            Back to Hero Card
+          </button>
+        </section>
       </div>
     `;
 
-    const inputEl = document.getElementById("pin-input");
+    const inputEl = document.getElementById("board-pin-input");
     inputEl.focus();
+    inputEl.addEventListener("input", (e) => {
+      state.pinInput = e.target.value.replace(/\D/g, "").slice(0, 4);
+      e.target.value = state.pinInput;
+    });
 
-    document.getElementById("submit-pin-btn").addEventListener("click", () => {
-      const entered = inputEl.value.trim();
-      if (entered === board.pin) {
-        state.modal = "trivia";
-        state.feedbackMessage = "";
-        state.shakeModal = false;
-        render();
-      } else {
-        state.feedbackMessage = "That PIN doesn't match this board—check the 4-digit sticker and try again.";
-        state.shakeModal = true;
-        render();
-        setTimeout(() => {
-          state.shakeModal = false;
-        }, 400);
-      }
+    document.getElementById("submit-pin-btn").addEventListener("click", handlePinSubmit);
+    inputEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") handlePinSubmit();
+    });
+
+    document.getElementById("close-modal-btn").addEventListener("click", () => {
+      state.modal = null;
+      state.feedbackMessage = "";
+      state.shakeModal = false;
+      render();
     });
     return;
   }
 
   if (state.modal === "trivia") {
+    const board = BOARDS[state.selectedBoardId];
     modalRootEl.innerHTML = `
-      <div class="modal-backdrop" role="dialog" aria-modal="true">
-        <div class="scrap-card no-margin-line modal-card ${state.shakeModal ? "shake" : ""}">
+      <div class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="trivia-modal-title">
+        <section class="scrap-card no-margin-line modal-card ${shakeClass}">
           <div class="washi-tape coral"></div>
-          <span class="progress-pill">${board.title}</span>
-          <h2 class="hand-title" style="font-size: 1.7rem;">${board.question}</h2>
+          <div class="progress-pill">Board #${board.id} Challenge</div>
+          <h2 id="trivia-modal-title" class="hand-title" style="font-size: 1.45rem;">${board.question}</h2>
           <div class="option-list">
             ${board.options
               .map(
@@ -579,78 +485,142 @@ function renderModal() {
               )
               .join("")}
           </div>
-          ${
-            state.feedbackMessage
-              ? `<div class="feedback-box">
-                  <strong>Not quite! Try another answer.</strong><br />
-                  <span>Hint: ${board.hint}</span>
-                </div>`
-              : ""
-          }
-        </div>
+          ${state.feedbackMessage ? `<div class="feedback-box">${state.feedbackMessage}</div>` : ""}
+          <button id="close-trivia-btn" class="option-btn" style="margin-top: 10px; text-align: center;" type="button">
+            Cancel
+          </button>
+        </section>
       </div>
     `;
 
     modalRootEl.querySelectorAll("[data-trivia-idx]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const chosen = Number(btn.dataset.triviaIdx);
+        const chosen = Number(btn.getAttribute("data-trivia-idx"));
         if (chosen === board.correctIndex) {
           state.modal = null;
-          state.token = generateEcoToken();
+          state.feedbackMessage = "";
+          state.shakeModal = false;
+          state.token = state.token || generateToken(state.role);
           state.redeemed = false;
           state.screen = "reward";
           render();
         } else {
-          state.feedbackMessage = board.hint;
+          state.feedbackMessage = "Not quite! Give that trivia question another try.";
           state.shakeModal = true;
           render();
           setTimeout(() => {
             state.shakeModal = false;
-          }, 400);
+            renderModal();
+          }, 380);
         }
       });
+    });
+
+    document.getElementById("close-trivia-btn").addEventListener("click", () => {
+      state.modal = null;
+      state.feedbackMessage = "";
+      state.shakeModal = false;
+      render();
     });
   }
 }
 
-function setupPressAndHold(buttonEl) {
-  if (!buttonEl) return;
+function handlePinSubmit() {
+  const hero = CHARACTERS[state.role];
+  const matchedBoard = findBoardByPin(state.pinInput);
 
-  const HOLD_DURATION_MS = 2000;
-  let startTime = null;
-  let rafId = null;
+  if (!matchedBoard) {
+    state.feedbackMessage = "Incorrect PIN. Check the 4-digit code on your board and try again.";
+    state.shakeModal = true;
+    render();
+    setTimeout(() => {
+      state.shakeModal = false;
+      renderModal();
+    }, 380);
+    return;
+  }
 
-  const resetHold = () => {
-    startTime = null;
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = null;
-    buttonEl.style.setProperty("--hold-progress", "0%");
-  };
+  if (matchedBoard.id !== hero.primaryBoardId) {
+    state.feedbackMessage = `That PIN belongs to Board #${matchedBoard.id}. Head to Board #${hero.primaryBoardId} for ${hero.title}!`;
+    state.shakeModal = true;
+    render();
+    setTimeout(() => {
+      state.shakeModal = false;
+      renderModal();
+    }, 380);
+    return;
+  }
 
-  const step = (now) => {
-    if (!startTime) startTime = now;
-    const elapsed = now - startTime;
-    const pct = Math.min(100, (elapsed / HOLD_DURATION_MS) * 100);
-    buttonEl.style.setProperty("--hold-progress", `${pct}%`);
-
-    if (elapsed >= HOLD_DURATION_MS) {
-      resetHold();
-      state.redeemed = true;
-      render();
-      return;
-    }
-    rafId = requestAnimationFrame(step);
-  };
-
-  buttonEl.addEventListener("pointerdown", (e) => {
-    e.preventDefault();
-    resetHold();
-    rafId = requestAnimationFrame(step);
-  });
-
-  buttonEl.addEventListener("pointerup", resetHold);
-  buttonEl.addEventListener("pointerleave", resetHold);
-  buttonEl.addEventListener("pointercancel", resetHold);
+  state.selectedBoardId = matchedBoard.id;
+  state.pinInput = "";
+  state.feedbackMessage = "";
+  state.shakeModal = false;
+  state.modal = "trivia";
+  render();
 }
 
-render();
+function clearHoldAnimation() {
+  if (holdTimerId) {
+    clearTimeout(holdTimerId);
+    holdTimerId = null;
+  }
+  if (holdRafId) {
+    cancelAnimationFrame(holdRafId);
+    holdRafId = null;
+  }
+}
+
+function setupPressAndHold(btnEl) {
+  if (!btnEl) return;
+  const DURATION_MS = 2000;
+  let startTime = null;
+
+  const updateProgress = (now) => {
+    if (!startTime) startTime = now;
+    const elapsed = now - startTime;
+    const pct = Math.min(100, (elapsed / DURATION_MS) * 100);
+    btnEl.style.setProperty("--hold-progress", `${pct}%`);
+    if (pct < 100) {
+      holdRafId = requestAnimationFrame(updateProgress);
+    }
+  };
+
+  const startHold = (e) => {
+    e.preventDefault();
+    clearHoldAnimation();
+    startTime = performance.now();
+    holdRafId = requestAnimationFrame(updateProgress);
+
+    holdTimerId = setTimeout(() => {
+      clearHoldAnimation();
+      state.redeemed = true;
+      saveSession({
+        role: state.role,
+        token: state.token,
+        redeemed: true
+      });
+      render();
+    }, DURATION_MS);
+  };
+
+  const cancelHold = () => {
+    clearHoldAnimation();
+    btnEl.style.setProperty("--hold-progress", "0%");
+  };
+
+  btnEl.addEventListener("pointerdown", startHold);
+  btnEl.addEventListener("pointerup", cancelHold);
+  btnEl.addEventListener("pointerleave", cancelHold);
+  btnEl.addEventListener("pointercancel", cancelHold);
+}
+
+(function init() {
+  const existing = loadSession();
+  if (existing && existing.role && CHARACTERS[existing.role] && existing.token) {
+    state.role = existing.role;
+    state.token = existing.token;
+    state.redeemed = Boolean(existing.redeemed);
+    state.screen = "reward";
+  }
+  render();
+})();
